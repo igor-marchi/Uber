@@ -1,0 +1,28 @@
+GET http://localhost:3000/places?text=nova trento, rua alferes, 244
+
+###
+GET http://localhost:3000/places?text=nova trento, praça getulio vargas, 180
+
+###
+
+@originId = ChIJaR0ejaNb35QRJ1CNqV6YPeo
+@destinationId= ChIJZw4HAKdb35QRw4YcW-ZJVUA
+
+###
+GET http://localhost:3000/directions?originId={{ originId }}&destinationId={{ destinationId }}
+
+###
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+  "name": "Rota 1",
+  "source_id": "{{ originId }}",
+  "destination_id": "{{ destinationId }}"
+}
+
+###
+GET http://localhost:3000/routes
+
+###
+GET http://localhost:3000/routes/675900f3c4b1da4ecf04b908
